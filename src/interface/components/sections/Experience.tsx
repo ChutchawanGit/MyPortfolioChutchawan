@@ -4,30 +4,34 @@ const Experience: React.FC = () => {
   const experiences = [
     {
       id: '1',
-      company: 'Tech Company Name',
-      position: 'Junior Backend Developer',
-      period: 'June 2024 - Present',
+      company: 'Tech Company',
+      position: 'Backend Developer',
+      period: 'Present - 11 months',
       description: 'Working on backend systems using Java and Golang. Involved in creating systems for product management and sales tracking. Implemented real-time chat functionalities for admin interfaces.',
       achievements: [
-        'Developed RESTful APIs that improved system response time by 25%',
-        'Implemented real-time data synchronization using WebSockets',
-        'Collaborated with frontend team to integrate backend services',
-        'Optimized database queries resulting in 30% faster data retrieval'
+        'Developed backend (Java/Golang) for a marketplace management system',
+        'Utilized APIs for product data management and other functionalities',
+        'Worked with databases (SQL, Oracle, AWS, BigQuery)',
+        'Contributed to real-time chat administration system development',
+        'Contributed to real-time update system development',
+        'Assisted in maintaining/creating reports (BigQuery, Looker, Grafana)',
+        'Contributed to web/Line App feature development (JS, HTML, CSS)'
       ],
-      technologies: ['Java', 'Spring Boot', 'Golang', 'SQL', 'Oracle', 'AWS', 'REST APIs']
+      technologies: ['Java', 'Golang', 'RESTful APIs', 'SQL', 'Oracle', 'AWS', 'BigQuery', 'JavaScript', 'Looker', 'Grafana']
     },
     {
       id: '2',
-      company: 'Internship Company',
-      position: 'Software Engineering Intern',
-      period: 'January 2024 - May 2024',
-      description: 'Assisted in the development of internal tools and automation scripts. Gained experience with database management and basic API integration.',
+      company: 'University',
+      position: 'Final Year Project',
+      period: 'During Studies',
+      description: 'Developed a social food selling app with chat and location features using Flutter.',
       achievements: [
-        'Created automation scripts using Selenium that saved 10+ hours of manual work weekly',
-        'Developed a simple dashboard for monitoring system performance',
-        'Learned proper Git workflow and collaboration in a professional environment'
+        'Built a fully functional mobile application using Flutter',
+        'Implemented real-time chat functionality',
+        'Added location-based features for nearby food vendors',
+        'Integrated with backend services and databases'
       ],
-      technologies: ['Java', 'Selenium', 'SQL', 'Git', 'Linux']
+      technologies: ['Flutter', 'Dart', 'Firebase', 'RESTful APIs', 'Location Services']
     }
   ];
 

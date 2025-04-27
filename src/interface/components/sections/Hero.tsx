@@ -8,7 +8,7 @@ const Hero: React.FC = () => {
           <div className="md:w-1/2 mb-8 md:mb-0">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               <span className="block">Hi, I'm</span> 
-              <span className="text-yellow-300">Your Name</span>
+              <span className="text-yellow-300">Chutchawan Meesrimatupoj(drink)</span>
             </h1>
             <h2 className="text-2xl md:text-3xl mb-6">Java & Golang Developer</h2>
             <p className="text-xl mb-8 text-blue-100">

@@ -25,7 +25,7 @@ const About: React.FC = () => {
             <div className="md:w-2/3 md:pl-12">
               <h3 className="text-xl font-bold mb-4">My Skills</h3>
 
-              // ในส่วนของ My Skills
+              
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <h4 className="font-semibold mb-2">Programming Languages</h4>

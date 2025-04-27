@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './interface/components/layout/Header';
+import Footer from './interface/components/layout/Footer';
+import Hero from './interface/components/sections/Hero';
+import About from './interface/components/sections/About';
+import Experience from './interface/components/sections/Experience';
+import Projects from './interface/components/sections/Projects';
+import Contact from './interface/components/sections/Contact';
+import { ProjectProvider } from './interface/context/ProjectContext';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ProjectProvider>
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-grow">
+          <Hero />
+          <About />
+          <Experience />
+          <Projects />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </ProjectProvider>
   );
-}
+};
 
 export default App;

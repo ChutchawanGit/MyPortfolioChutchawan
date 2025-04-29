@@ -53,7 +53,7 @@ const Hero: React.FC = () => {
                   onError={(e) => {
                     // Fallback if image doesn't load
                     const target = e.target as HTMLImageElement;
-                    target.src = "https://via.placeholder.com/400x400?text=Your+Photo";
+                    target.src = "https://zxgzckhxyhexdvhgvxie.supabase.co/storage/v1/object/sign/myimage/Screenshot%202025-04-27%20184834.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5X2Y5ODYxMmE2LTk3ODgtNDA0ZC1iMTJhLTI3MjkwNjU4NDMwZSJ9.eyJ1cmwiOiJteWltYWdlL1NjcmVlbnNob3QgMjAyNS0wNC0yNyAxODQ4MzQucG5nIiwiaWF0IjoxNzQ1NzcwMTM3LCJleHAiOjE3NzczMDYxMzd9.8cIqKwgShV45EEC4jt3oiF1JyMdYXRFIKa2Vu4doLfI";
                   }}
                 />
               </div>

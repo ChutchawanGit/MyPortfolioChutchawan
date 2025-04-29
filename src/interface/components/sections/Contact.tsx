@@ -112,8 +112,8 @@ const Contact: React.FC = () => {
                   </div>
                   <div className="ml-4">
                     <h4 className="text-gray-500 text-sm uppercase">Email</h4>
-                    <a href="mailto:your.email@example.com" className="text-gray-700 hover:text-blue-600">
-                      your.email@example.com
+                    <a href="mailto:chutchawanmeesrimatupoj@gmail.com" className="text-gray-700 hover:text-blue-600">
+                    chutchawanmeesrimatupoj@gmail.com
                     </a>
                   </div>
                 </div>
@@ -134,8 +134,8 @@ const Contact: React.FC = () => {
                   </div>
                   <div className="ml-4">
                     <h4 className="text-gray-500 text-sm uppercase">GitHub</h4>
-                    <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-blue-600">
-                      github.com/yourusername
+                    <a href="https://github.com/ChutchawanGit" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-blue-600">
+                    github.com/ChutchawanGit
                     </a>
                   </div>
                 </div>
@@ -146,8 +146,8 @@ const Contact: React.FC = () => {
                   </div>
                   <div className="ml-4">
                     <h4 className="text-gray-500 text-sm uppercase">LinkedIn</h4>
-                    <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-blue-600">
-                      linkedin.com/in/yourusername
+                    <a href="https://www.linkedin.com/in/chutchawan-meesrimatupoj-b6a452301/" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-blue-600">
+                      linkedin.com/in/ChutchawanMeesrimatupoj
                     </a>
                   </div>
                 </div>

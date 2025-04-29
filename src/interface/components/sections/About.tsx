@@ -185,8 +185,8 @@ const About: React.FC = () => {
                 <h4 className="font-semibold mb-3">Education</h4>
                 <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
                   <h5 className="font-bold">Your Degree Name</h5>
-                  <p className="text-gray-600">Your Major | University Name | Year of Graduation</p>
-                  <p className="mt-2 text-gray-700">Additional Coursework: Image Processing Course Name</p>
+                  <p className="text-gray-600">Computer Science | SUAN SUNANDHA RAJABHAT UNIVERSITY | 2024</p>
+                  <p className="mt-2 text-gray-700">Additional Coursework: Image Processing</p>
                 </div>
               </div>
             </div>

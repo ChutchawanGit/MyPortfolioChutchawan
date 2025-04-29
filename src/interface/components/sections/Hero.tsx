@@ -5,7 +5,13 @@ const Hero: React.FC = () => {
   return (
     <section 
       id="hero-section" 
-      className="bg-gradient-to-r from-blue-700 to-indigo-800 text-white py-20 relative overflow-hidden"
+      className="relative overflow-hidden"
+      style={{
+        background: 'linear-gradient(to bottom, #3b82f6 0%, #4338ca 80%, rgba(255,255,255,0) 100%)',
+        paddingTop: '5rem',
+        paddingBottom: '8rem',
+        marginBottom: '-4rem' // ทำให้ส่วนเนื้อหาถัดไปมาทับส่วนที่จางลง
+      }}
     >
       {/* Snow Animation Background */}
       <SnowBackground count={500} color="#ffffff" />
@@ -14,11 +20,11 @@ const Hero: React.FC = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="md:w-1/2 mb-8 md:mb-0">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
               <span className="block">Hi, I'm</span> 
               <span className="text-yellow-300">Chutchawan Meesrimatupoj(drink)</span>
             </h1>
-            <h2 className="text-2xl md:text-3xl mb-6">Java & Golang Developer</h2>
+            <h2 className="text-2xl md:text-3xl mb-6 text-white">Java & Golang Developer</h2>
             <p className="text-xl mb-8 text-blue-100">
               With 11 months of experience building robust backend services and APIs.
               Passionate about clean code and solving complex problems.
@@ -54,6 +60,14 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
+      
+      {/* Gradient Fade-out Element */}
+      <div 
+        className="absolute bottom-0 left-0 w-full h-24 z-0"
+        style={{
+          background: 'linear-gradient(to bottom, rgba(67, 56, 202, 1) 0%, rgba(255, 255, 255, 0) 100%)'
+        }}
+      ></div>
     </section>
   );
 };

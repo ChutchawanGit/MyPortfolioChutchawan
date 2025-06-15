@@ -62,7 +62,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-4 text-center text-gray-400">
-          <p>&copy; {currentYear} chutchawanmeesrimatupoj.</p>
+          <p>&copy; {currentYear} chutchawan meesrimatupoj.</p>
         </div>
       </div>
     </footer>

@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold mb-2">Connect With Me</h3>
             <div className="flex space-x-4">
               <a 
-                href="https://github.com/yourusername" 
+                href="https://github.com/ChutchawanGit" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition"
@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
                 <i className="fab fa-github text-xl"></i>
               </a>
               <a 
-                href="https://linkedin.com/in/yourusername" 
+                href="https://www.linkedin.com/in/chutchawan-meesrimatupoj-b6a452301/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition"
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
                 <i className="fab fa-linkedin text-xl"></i>
               </a>
               <a 
-                href="mailto:your.email@example.com" 
+                href="mailto:chutchawanmeesrimatupoj@gmail.com" 
                 className="text-gray-400 hover:text-white transition"
               >
                 <i className="fas fa-envelope text-xl"></i>
@@ -62,7 +62,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-4 text-center text-gray-400">
-          <p>&copy; {currentYear} Your Name. All rights reserved.</p>
+          <p>&copy; {currentYear} chutchawanmeesrimatupoj.</p>
         </div>
       </div>
     </footer>

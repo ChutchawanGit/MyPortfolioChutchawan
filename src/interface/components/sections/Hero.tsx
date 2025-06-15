@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
             </h1>
             <h2 className="text-2xl md:text-3xl mb-6">Java & Golang Developer</h2>
             <p className="text-xl mb-8 text-blue-100">
-              With 11 months of experience building robust backend services and APIs.
+              With 1 Year of experience building robust backend services and APIs.
               Passionate about clean code and solving complex problems.
             </p>
             <div className="flex flex-wrap gap-4">

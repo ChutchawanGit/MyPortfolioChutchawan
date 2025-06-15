@@ -6,7 +6,7 @@ const Experience: React.FC = () => {
       id: '1',
       company: 'Tech Company',
       position: 'Backend Developer',
-      period: 'Present - 11 months',
+      period: 'Present - 1 Year',
       description: 'Working on backend systems using Java and Golang. Involved in creating systems for product management and sales tracking. Implemented real-time chat functionalities for admin interfaces.',
       achievements: [
         'Developed backend (Java/Golang) for a marketplace management system',

@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
-import { ContactUseCases } from '../../../application/useCases/contactUseCases';
-import { contactRepository } from '../../../infrastructure/supabase/repositories/contactRepository';
-
-// Create use case with repository implementation
-const contactUseCases = new ContactUseCases(contactRepository);
+import emailjs from '@emailjs/browser';
 
 interface FormState {
   name: string;
@@ -28,6 +24,11 @@ const Contact: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+
+  // EmailJS Configuration
+  const EMAILJS_SERVICE_ID = 'service_11u5y0c'; // จาก EmailJS Dashboard
+  const EMAILJS_TEMPLATE_ID = 'template_0iadaxy'; // จาก EmailJS Dashboard  
+  const EMAILJS_PUBLIC_KEY = 'MXiGUdlDBxND7nXXy'; // จาก EmailJS Dashboard
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
@@ -54,7 +55,6 @@ const Contact: React.FC = () => {
     const { name, value } = e.target;
     setFormState(prev => ({ ...prev, [name]: value }));
     
-    // Clear error when user starts typing
     if (errors[name as keyof FormErrors]) {
       setErrors(prev => ({ ...prev, [name]: undefined }));
     }
@@ -71,7 +71,20 @@ const Contact: React.FC = () => {
     setSubmitError(null);
     
     try {
-      await contactUseCases.sendMessage(formState.name, formState.email, formState.message);
+      // ส่งอีเมลผ่าน EmailJS
+      const templateParams = {
+        from_name: formState.name,
+        from_email: formState.email,
+        message: formState.message,
+        to_email: 'chutchawanmeesrimatupoj@gmail.com' // อีเมลของคุณ
+      };
+
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
       
       // Reset form on success
       setFormState({
@@ -82,13 +95,12 @@ const Contact: React.FC = () => {
       
       setSubmitSuccess(true);
       
-      // Hide success message after 5 seconds
       setTimeout(() => {
         setSubmitSuccess(false);
       }, 5000);
     } catch (error) {
-      console.error('Error sending message:', error);
-      setSubmitError(error instanceof Error ? error.message : 'Failed to send message. Please try again.');
+      console.error('Error sending email:', error);
+      setSubmitError('Failed to send message. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -99,7 +111,6 @@ const Contact: React.FC = () => {
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold mb-8 text-center">Get In Touch</h2>
         
-        {/* เพิ่มความกว้าง container ให้มากขึ้น */}
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Contact Info */}

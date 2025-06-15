@@ -37,7 +37,7 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <a href="#hero" className="text-2xl font-bold">
-            <span className={isScrolled ? 'text-blue-600' : 'text-white'}>Dev</span>
+            <span className={isScrolled ? 'text-blue-600' : 'text-white'}>Drink</span>
             <span className={isScrolled ? 'text-gray-800' : 'text-blue-300'}>Portfolio</span>
           </a>
 

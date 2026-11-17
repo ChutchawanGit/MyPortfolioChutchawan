@@ -15,6 +15,16 @@ import { Project } from '../core/entities';
  */
 export const STATIC_PROJECTS: Project[] = [
   {
+    id: 'neighborhouses-smart-home',
+    title: 'Neighbor Houses – Luxury Smart Living Commercial Platform',
+    description:
+      'Engineered and launched a luxury smart home commercial web platform built with Next.js 15, TypeScript, Tailwind CSS, and Radix UI. Implemented full Static Site Generation (SSG) across 44 pages with dynamic route params, architectural luxury minimal design, interactive package selectors, and automated GitHub Pages CI/CD deployment.',
+    technologies: ['Next.js 15', 'TypeScript', 'Tailwind CSS', 'Radix UI', 'Static Export (SSG)', 'GitHub Pages', 'Lucide Icons'],
+    imageUrl: './assets/images/projects/neighborhouses-smarthome.jpg',
+    githubUrl: 'https://github.com/ChutchawanGit/neighborhouses-website',
+    liveUrl: 'https://chutchawangit.github.io/neighborhouses-website/'
+  },
+  {
     id: 'db-migration-sqlserver',
     title: 'Cross-Database Migration & Compatibility (MariaDB → SQL Server 2025)',
     description:

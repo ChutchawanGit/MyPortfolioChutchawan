@@ -1,54 +1,74 @@
 import { Project } from '../../../core/entities';
 import { ProjectRepository } from '../../../core/repositories';
+import { STATIC_PROJECTS } from '../../../data/projects';
 import supabaseClient from '../client';
 
 export class SupabaseProjectRepository implements ProjectRepository {
   async getAll(): Promise<Project[]> {
-    const { data, error } = await supabaseClient
-      .from('projects')
-      .select('*')
-      .order('created_at', { ascending: false });
-
-    if (error) {
-      console.error('Error fetching projects:', error);
-      throw new Error('Failed to fetch projects');
+    if (!supabaseClient) {
+      return STATIC_PROJECTS;
     }
 
-    return data.map(item => ({
-      id: item.id,
-      title: item.title,
-      description: item.description,
-      technologies: item.technologies,
-      imageUrl: item.image_url,
-      githubUrl: item.github_url || undefined,
-      liveUrl: item.live_url || undefined
-    }));
+    try {
+      const { data, error } = await supabaseClient
+        .from('projects')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (error || !data || data.length === 0) {
+        return STATIC_PROJECTS;
+      }
+
+      return data.map(item => ({
+        id: item.id,
+        title: item.title,
+        description: item.description,
+        technologies: item.technologies,
+        imageUrl: item.image_url,
+        githubUrl: item.github_url || undefined,
+        liveUrl: item.live_url || undefined
+      }));
+    } catch (err) {
+      console.warn('Supabase unreachable, falling back to local project data:', err);
+      return STATIC_PROJECTS;
+    }
   }
 
   async getById(id: string): Promise<Project | null> {
-    const { data, error } = await supabaseClient
-      .from('projects')
-      .select('*')
-      .eq('id', id)
-      .single();
-
-    if (error) {
-      console.error(`Error fetching project with id ${id}:`, error);
-      return null;
+    if (!supabaseClient) {
+      return STATIC_PROJECTS.find(p => p.id === id) || null;
     }
 
-    return {
-      id: data.id,
-      title: data.title,
-      description: data.description,
-      technologies: data.technologies,
-      imageUrl: data.image_url,
-      githubUrl: data.github_url || undefined,
-      liveUrl: data.live_url || undefined
-    };
+    try {
+      const { data, error } = await supabaseClient
+        .from('projects')
+        .select('*')
+        .eq('id', id)
+        .single();
+
+      if (error || !data) {
+        return STATIC_PROJECTS.find(p => p.id === id) || null;
+      }
+
+      return {
+        id: data.id,
+        title: data.title,
+        description: data.description,
+        technologies: data.technologies,
+        imageUrl: data.image_url,
+        githubUrl: data.github_url || undefined,
+        liveUrl: data.live_url || undefined
+      };
+    } catch {
+      return STATIC_PROJECTS.find(p => p.id === id) || null;
+    }
   }
 
   async create(project: Omit<Project, 'id'>): Promise<Project> {
+    if (!supabaseClient) {
+      throw new Error('Supabase is not configured');
+    }
+
     const { data, error } = await supabaseClient
       .from('projects')
       .insert({
@@ -79,8 +99,12 @@ export class SupabaseProjectRepository implements ProjectRepository {
   }
 
   async update(id: string, project: Partial<Project>): Promise<Project | null> {
+    if (!supabaseClient) {
+      return null;
+    }
+
     const updateData: any = {};
-    
+
     if (project.title !== undefined) updateData.title = project.title;
     if (project.description !== undefined) updateData.description = project.description;
     if (project.technologies !== undefined) updateData.technologies = project.technologies;
@@ -112,6 +136,10 @@ export class SupabaseProjectRepository implements ProjectRepository {
   }
 
   async delete(id: string): Promise<boolean> {
+    if (!supabaseClient) {
+      return false;
+    }
+
     const { error } = await supabaseClient
       .from('projects')
       .delete()
@@ -126,5 +154,4 @@ export class SupabaseProjectRepository implements ProjectRepository {
   }
 }
 
-// Export a singleton instance
 export const projectRepository = new SupabaseProjectRepository();

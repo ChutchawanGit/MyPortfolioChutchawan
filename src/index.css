@@ -2,30 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-/* เพิ่มเติมจาก CSS ที่มีอยู่แล้ว */
+:root {
+  --paper: #0a3460;
+  --paper-2: #0c3a6a;
+  --paper-deep: #072546;
+  --ink: #eaf4ff;
+  --ink-2: rgba(234, 244, 255, 0.76);
+  --ink-3: rgba(234, 244, 255, 0.44);
+  --ink-4: rgba(234, 244, 255, 0.16);
+  --line: rgba(234, 244, 255, 0.88);
+  --cyan: #7fdcff;
+  --amber: #ffc163;
+  --red: #ff7d7d;
+  --grey: #8fa6c2;
+  --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --cond: 'Barlow Condensed', 'Avenir Next Condensed', 'Roboto Condensed', sans-serif;
+  --sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Base Blueprint Canvas */
 body {
   margin: 0;
   padding: 0;
-  background-color: white;
+  color: var(--ink);
+  font-family: var(--sans);
+  background-color: var(--paper-deep);
+  background-image:
+    /* Major grid lines 120px */
+    linear-gradient(rgba(150, 200, 255, 0.13) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(150, 200, 255, 0.13) 1px, transparent 1px),
+    /* Minor grid lines 24px */
+    linear-gradient(rgba(150, 200, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(150, 200, 255, 0.05) 1px, transparent 1px),
+    /* Radial lighting */
+    radial-gradient(ellipse 120% 70% at 50% 0%, #0f4a82 0%, var(--paper) 50%, var(--paper-deep) 100%);
+  background-size:
+    120px 120px,
+    120px 120px,
+    24px 24px,
+    24px 24px,
+    100% 100%;
+  background-position:
+    -1px -1px,
+    -1px -1px,
+    -1px -1px,
+    -1px -1px,
+    0 0;
+  background-attachment: fixed;
   overflow-x: hidden;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  letter-spacing: -0.01em;
 }
 
 /* Smooth scrolling */
@@ -33,26 +58,306 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
+::selection {
+  background: var(--amber);
+  color: var(--paper-deep);
+}
+
+/* Custom Blueprint Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--paper-deep);
+  border-left: 1px solid var(--ink-4);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--paper-2);
+  border: 1px solid var(--cyan);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cyan);
+}
+
+/* Typography Helpers */
+.font-cond {
+  font-family: var(--cond);
+}
+
+.font-mono-code {
+  font-family: var(--mono);
+}
+
+/* Technical Code Pill */
+code, .bp-code {
+  font-family: var(--mono);
+  color: var(--cyan);
+  background: rgba(127, 220, 255, 0.08);
+  border: 1px solid rgba(127, 220, 255, 0.28);
+  border-radius: 3px;
+  padding: 0.15em 0.4em;
+  font-size: 0.88em;
+}
+
+/* Blueprint Sheet (CAD Drawing Mat) */
+.bp-sheet {
+  position: relative;
+  border: 1.5px solid var(--line);
+  background: rgba(4, 26, 52, 0.45);
+  box-shadow:
+    0 0 0 7px rgba(9, 48, 90, 0.92),
+    0 0 0 8px var(--ink-4),
+    0 30px 60px -30px rgba(0, 0, 0, 0.6);
+  padding: 64px 32px 48px;
+  margin-bottom: 64px;
+  backdrop-filter: blur(4px);
+  scroll-margin-top: 80px;
+}
+
+@media (min-width: 768px) {
+  .bp-sheet {
+    padding: 72px 56px 56px;
   }
-  to {
-    opacity: 1;
+}
+
+/* Strip top header */
+.bp-strip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(12, 58, 106, 0.85);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink);
+  overflow: hidden;
+}
+
+.bp-strip-title {
+  color: var(--cyan);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* CAD Ruler Scale */
+.bp-ruler {
+  position: absolute;
+  top: 38px;
+  left: 0;
+  right: 0;
+  height: 9px;
+  background-image:
+    repeating-linear-gradient(90deg, var(--ink-3) 0, var(--ink-3) 1px, transparent 1px, transparent 24px),
+    repeating-linear-gradient(90deg, var(--cyan) 0, var(--cyan) 1.5px, transparent 1.5px, transparent 120px);
+  border-bottom: 1px solid var(--ink-4);
+  opacity: 0.75;
+}
+
+/* CAD Corner Registration Crosshair */
+.bp-crosshair {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px var(--ink-3);
+  pointer-events: none;
+}
+
+.bp-crosshair::before,
+.bp-crosshair::after {
+  content: '';
+  position: absolute;
+  background: var(--ink-3);
+}
+
+.bp-crosshair::before {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+}
+
+.bp-crosshair::after {
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  transform: translateY(-50%);
+}
+
+/* Engineering Titleblock */
+.bp-titleblock {
+  border: 1px solid var(--line);
+  background: var(--paper-2);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background-color: var(--ink-3);
+  font-family: var(--mono);
+  font-size: 11px;
+}
+
+@media (min-width: 768px) {
+  .bp-titleblock {
+    grid-template-columns: 2fr 1.5fr 1fr 1fr;
   }
 }
 
-.animate-fadeIn {
-  animation: fadeIn 1s ease-in-out;
+.bp-tb-cell {
+  background: var(--paper-2);
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-/* Custom hover effects */
-.hover-shadow {
-  transition: all 0.3s ease;
+.bp-tb-label {
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 2px;
 }
 
-.hover-shadow:hover {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  transform: translateY(-4px);
+.bp-tb-val {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.05em;
+}
+
+/* Blueprint Technical Buttons */
+.bp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 22px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1.5px solid var(--cyan);
+  color: var(--cyan);
+  background: rgba(127, 220, 255, 0.08);
+  transition: all 0.2s ease;
+  position: relative;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.bp-btn:hover {
+  background: var(--cyan);
+  color: var(--paper-deep);
+  box-shadow: 0 0 16px rgba(127, 220, 255, 0.4);
+}
+
+.bp-btn-amber {
+  border-color: var(--amber);
+  color: var(--amber);
+  background: rgba(255, 193, 99, 0.08);
+}
+
+.bp-btn-amber:hover {
+  background: var(--amber);
+  color: var(--paper-deep);
+  box-shadow: 0 0 16px rgba(255, 193, 99, 0.4);
+}
+
+.bp-btn-solid {
+  background: var(--cyan);
+  color: var(--paper-deep);
+  border-color: var(--cyan);
+}
+
+.bp-btn-solid:hover {
+  background: #aae8ff;
+  box-shadow: 0 0 20px rgba(127, 220, 255, 0.6);
+}
+
+/* Technical Panels & Callouts */
+.bp-callout {
+  border: 1px dashed var(--cyan);
+  background: rgba(127, 220, 255, 0.05);
+  padding: 16px 20px;
+  position: relative;
+}
+
+.bp-callout-tag {
+  position: absolute;
+  top: -10px;
+  left: 14px;
+  background: var(--paper-deep);
+  border: 1px solid var(--cyan);
+  color: var(--cyan);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  padding: 1px 8px;
+  text-transform: uppercase;
+}
+
+.bp-callout-amber {
+  border-color: var(--amber);
+  background: rgba(255, 193, 99, 0.05);
+}
+
+.bp-callout-amber .bp-callout-tag {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+/* Diagonal 45-degree CAD Hatch Pattern */
+.bp-hatch {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 125, 125, 0.12),
+    rgba(255, 125, 125, 0.12) 3px,
+    transparent 3px,
+    transparent 8px
+  );
+}
+
+.bp-hatch-cyan {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(127, 220, 255, 0.12),
+    rgba(127, 220, 255, 0.12) 3px,
+    transparent 3px,
+    transparent 8px
+  );
+}
+
+/* Animations */
+@keyframes bp-pulse-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 6px rgba(127, 220, 255, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgba(127, 220, 255, 0.7));
+  }
+}
+
+.bp-glow {
+  animation: bp-pulse-glow 3s infinite ease-in-out;
 }

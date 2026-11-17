@@ -4,6 +4,10 @@ import supabaseClient from '../client';
 
 export class SupabaseContactRepository implements ContactRepository {
   async send(message: Omit<ContactMessage, 'id' | 'read' | 'createdAt'>): Promise<ContactMessage> {
+    if (!supabaseClient) {
+      throw new Error('Supabase is not configured');
+    }
+
     const { data, error } = await supabaseClient
       .from('messages')
       .insert({
@@ -31,6 +35,10 @@ export class SupabaseContactRepository implements ContactRepository {
   }
 
   async getAll(): Promise<ContactMessage[]> {
+    if (!supabaseClient) {
+      return [];
+    }
+
     const { data, error } = await supabaseClient
       .from('messages')
       .select('*')
@@ -52,6 +60,10 @@ export class SupabaseContactRepository implements ContactRepository {
   }
 
   async markAsRead(id: string): Promise<boolean> {
+    if (!supabaseClient) {
+      return false;
+    }
+
     const { error } = await supabaseClient
       .from('messages')
       .update({ read: true })
@@ -66,6 +78,10 @@ export class SupabaseContactRepository implements ContactRepository {
   }
 
   async delete(id: string): Promise<boolean> {
+    if (!supabaseClient) {
+      return false;
+    }
+
     const { error } = await supabaseClient
       .from('messages')
       .delete()

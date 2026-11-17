@@ -1,224 +1,251 @@
-import React, { useState } from 'react';
+import React from 'react';
+
+interface SkillModule {
+  code: string;
+  category: string;
+  accent: 'cyan' | 'amber' | 'red';
+  items: string[];
+}
+
+const skillModules: SkillModule[] = [
+  {
+    code: 'MOD-01',
+    category: 'LANGUAGES & RUNTIMES',
+    accent: 'cyan',
+    items: [
+      'PHP (7.3 – 8.4)',
+      'Go (Golang)',
+      'Java (Java 8)',
+      'Python',
+      'JavaScript (ES6+)',
+      'SQL (T-SQL, PL/SQL)',
+      'C++'
+    ]
+  },
+  {
+    code: 'MOD-02',
+    category: 'FRAMEWORKS & LIBRARIES',
+    accent: 'cyan',
+    items: [
+      'CodeIgniter 4',
+      'PHPUnit (Automated Testing)',
+      'Node.js',
+      'Dompdf (Automated PDF)',
+      'Chart.js',
+      'Bootstrap',
+      'Tailwind CSS',
+      'jQuery'
+    ]
+  },
+  {
+    code: 'MOD-03',
+    category: 'DATABASES & STORAGE ENGINES',
+    accent: 'amber',
+    items: [
+      'Microsoft SQL Server (2025)',
+      'Oracle Database 12c (OCI8)',
+      'MariaDB / MySQL',
+      'Qdrant (Vector Database)',
+      'Google BigQuery',
+      'DBeaver'
+    ]
+  },
+  {
+    code: 'MOD-04',
+    category: 'PAYMENT GATEWAYS & SECURITY',
+    accent: 'amber',
+    items: [
+      'Opn Payments (Omise API)',
+      'KTB Gateway (DataFeed)',
+      '3D-Secure Authorization',
+      'Tokenization API (PCI-DSS)',
+      'OAuth 2.0 (Google & LINE)',
+      'SHA-256 PII Hashing'
+    ]
+  },
+  {
+    code: 'MOD-05',
+    category: 'DEVOPS, LINUX & TOOLING',
+    accent: 'red',
+    items: [
+      'Docker & Containerization',
+      'OrbStack',
+      'Linux (CentOS 7, Ubuntu)',
+      'Apache 2.4',
+      'Git / GitLab / GitHub',
+      'Laragon',
+      'VS Code / AI Workflows'
+    ]
+  },
+  {
+    code: 'MOD-06',
+    category: 'AUTOMATION & COMPUTER VISION',
+    accent: 'red',
+    items: [
+      'Tesseract OCR (Text Extraction)',
+      'YOLO (Person Detection)',
+      'PHP CLI & Cron Jobs',
+      'Grafana Dashboard Analytics',
+      'Firecrawl & Scrapling',
+      'RAG Pipelines (Prototypes)'
+    ]
+  }
+];
 
 const About: React.FC = () => {
-  // เพิ่ม state สำหรับเก็บข้อมูลทักษะที่จะแสดง tooltip
-  const [activeTooltip, setActiveTooltip] = useState<string | null>(null);
-
-  // ข้อมูลคำอธิบายทักษะ
-  const skillDescriptions: Record<string, string> = {
-    "Java": "65% - Solid Java development experience with Spring Boot framework. Proficient in building RESTful APIs, working with collections, and handling basic multi-threading. Comfortable with Maven/Gradle and writing unit tests.",
-    "Golang": "40% - Working knowledge of Go fundamentals including goroutines and channels. Experience building simple web services and API endpoints. Still developing proficiency with advanced Go patterns and best practices.",
-    "JavaScript": "35% - Basic proficiency in JavaScript for frontend interactions and simple scripting. Understanding of ES6+ features, async/await, and DOM manipulation. Used primarily for enhancing user interfaces.",
-    "SQL/Databases": "45% - Competent in writing complex queries, joins, and basic optimization. Experience with Oracle, MySQL, and PostgreSQL. Understanding of database design principles and normalization.",
-    "APIs": "55% - Strong practical experience in consuming and integrating third-party APIs. Comfortable building RESTful endpoints and handling HTTP methods, status codes, and JSON responses. Good understanding of API authentication and error handling.",
-    "Firebase/Supabase": "30% - Basic experience with authentication and real-time database features. Used in personal projects for quick prototyping and learning cloud services fundamentals."
-  };
-
-  // Function to toggle tooltip visibility
-  const toggleTooltip = (skill: string) => {
-    if (activeTooltip === skill) {
-      setActiveTooltip(null);
-    } else {
-      setActiveTooltip(skill);
-    }
-  };
-
   return (
-    <section id="about" className="py-16">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-8 text-center">About Me</h2>
-        
-        <div className="bg-white shadow-lg rounded-lg p-8">
-          <div className="flex flex-col md:flex-row">
-            <div className="md:w-1/3 mb-8 md:mb-0">
-              <h3 className="text-xl font-bold mb-4">Who am I?</h3>
-              <p className="text-gray-700 mb-4">
-                I'm a Junior Backend Developer with 1 year of professional experience, specializing in Java and exploring Golang development. I have practical experience working with APIs, both consuming external services and building internal endpoints for various business requirements.
-              </p>
-              <p className="text-gray-700">
-                During my first year, I've contributed to developing management systems, real-time chat features, and data update mechanisms. I also have foundational knowledge in automation tools like Selenium and basic Linux operations. I'm continuously learning and eager to deepen my technical expertise while taking on more challenging projects.
+    <section id="about" className="py-8">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
+        <div className="bp-sheet">
+          {/* Top Title Strip */}
+          <div className="bp-strip">
+            <span className="font-bold text-[var(--amber)]">[ 02 ]</span>
+            <span className="bp-strip-title">SYSTEM SPECIFICATIONS, ANATOMY &amp; VERIFIED SKILLS</span>
+            <span className="hidden sm:inline text-[var(--ink-3)]">HAS-PORTFOLIO · SHEET 02 / 05</span>
+          </div>
+          <div className="bp-ruler"></div>
+          <div className="bp-crosshair"></div>
+
+          {/* Section Kicker */}
+          <div className="mb-6 pt-2">
+            <div className="flex items-center gap-2 font-mono-code text-xs text-[var(--cyan)] uppercase tracking-[0.18em]">
+              <span className="w-1.5 h-1.5 bg-[var(--cyan)]"></span>
+              <span>ANATOMY &amp; VERIFIED CORE ARCHITECTURAL COMPETENCIES</span>
+            </div>
+            <h2 className="font-cond font-bold text-3xl sm:text-5xl uppercase tracking-tight text-[var(--ink)] mt-1">
+              ENGINEERING FOUNDATIONS
+            </h2>
+          </div>
+
+          {/* 3 Anatomy Cards (Fact-Based) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+            <div className="border border-[var(--ink-4)] border-t-[3px] border-t-[var(--cyan)] bg-[rgba(12,58,106,0.3)] p-5 relative">
+              <div className="font-mono-code text-xs text-[var(--cyan)] font-bold tracking-wider mb-2">
+                [ 01 · ANCHOR ] DATABASE MIGRATION &amp; DRIVERS
+              </div>
+              <h3 className="font-cond text-xl font-bold uppercase text-[var(--ink)] mb-2">
+                Cross-Database Engineering
+              </h3>
+              <p className="text-sm text-[var(--ink-2)] leading-relaxed m-0 font-sans">
+                Hands-on migration of complex systems from MariaDB to SQL Server 2025, solving missing
+                IDENTITY constraints across ~40 tables, adapting strict T-SQL queries, and resolving deep
+                driver memory buffer bugs in PHP SQLSRV.
               </p>
             </div>
-            
-            <div className="md:w-2/3 md:pl-12">
-              <h3 className="text-xl font-bold mb-4">My Skills</h3>
-              <p className="text-gray-600 mb-4 text-sm italic">
-                Click on any skill bar to see detailed description of my current proficiency level
+
+            <div className="border border-[var(--ink-4)] border-t-[3px] border-t-[var(--amber)] bg-[rgba(12,58,106,0.3)] p-5 relative">
+              <div className="font-mono-code text-xs text-[var(--amber)] font-bold tracking-wider mb-2">
+                [ 02 · CONDITION ] PAYMENT GATEWAYS &amp; PII
+              </div>
+              <h3 className="font-cond text-xl font-bold uppercase text-[var(--ink)] mb-2">
+                Security &amp; Webhook Reliability
+              </h3>
+              <p className="text-sm text-[var(--ink-2)] leading-relaxed m-0 font-sans">
+                Production integrations with Opn Payments (Omise) &amp; KTB Gateway with 3D-Secure,
+                asynchronous Webhooks, and Tokenization APIs (zero raw card storage). Executed database encryption
+                and SHA-256 hashing across 5,701 National ID records.
               </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <h4 className="font-semibold mb-2">Programming Languages</h4>
-                  <div className="space-y-3">
-                    <div>
-                      <div className="flex justify-between mb-1">
-                        <span className="text-sm font-medium">Java</span>
-                        <span className="text-sm font-medium">65%</span>
-                      </div>
-                      <div 
-                        className="w-full bg-gray-200 rounded-full h-2 cursor-pointer relative"
-                        onClick={() => toggleTooltip("Java")}
-                      >
-                        <div className="bg-blue-600 h-2 rounded-full" style={{ width: '65%' }}></div>
-                        {activeTooltip === "Java" && (
-                          <div className="absolute left-0 mt-2 p-2 bg-gray-800 text-white text-xs rounded shadow-lg z-10 w-full max-w-xs">
-                            {skillDescriptions["Java"]}
-                          </div>
-                        )}
-                      </div>
+            </div>
+
+            <div className="border border-[var(--ink-4)] border-t-[3px] border-t-[var(--red)] bg-[rgba(12,58,106,0.3)] p-5 relative">
+              <div className="font-mono-code text-xs text-[var(--red)] font-bold tracking-wider mb-2">
+                [ 03 · TARGET ] AUTOMATION &amp; VISION
+              </div>
+              <h3 className="font-cond text-xl font-bold uppercase text-[var(--ink)] mb-2">
+                OCR, Computer Vision &amp; Testing
+              </h3>
+              <p className="text-sm text-[var(--ink-2)] leading-relaxed m-0 font-sans">
+                Deploying Tesseract OCR to detect screenshot fraud in product reviews, YOLO person detection
+                for privacy/PDPA risk filtering, background CLI processing, and maintaining 100% PHPUnit test pass
+                rates across critical features.
+              </p>
+            </div>
+          </div>
+
+          {/* Technical Skills Modules Grid */}
+          <div className="mb-8">
+            <div className="flex items-center justify-between border-b border-[var(--ink-4)] pb-2 mb-6">
+              <h3 className="font-cond font-bold text-2xl uppercase tracking-wider text-[var(--ink)] m-0">
+                PROVEN TECHNICAL SKILLS MATRIX (6 MODULES)
+              </h3>
+              <span className="font-mono-code text-xs text-[var(--cyan)]">EVIDENCE-BASED · 2026</span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {skillModules.map((mod) => {
+                const borderAccent =
+                  mod.accent === 'cyan'
+                    ? 'border-l-[var(--cyan)]'
+                    : mod.accent === 'amber'
+                    ? 'border-l-[var(--amber)]'
+                    : 'border-l-[var(--red)]';
+
+                const badgeStyle =
+                  mod.accent === 'cyan'
+                    ? 'text-[var(--cyan)] border-[rgba(127,220,255,0.3)] bg-[rgba(127,220,255,0.06)]'
+                    : mod.accent === 'amber'
+                    ? 'text-[var(--amber)] border-[rgba(255,193,99,0.3)] bg-[rgba(255,193,99,0.06)]'
+                    : 'text-[var(--red)] border-[rgba(255,125,125,0.3)] bg-[rgba(255,125,125,0.06)]';
+
+                return (
+                  <div
+                    key={mod.code}
+                    className={`border border-[var(--ink-4)] border-l-[3px] ${borderAccent} bg-[rgba(12,58,106,0.25)] p-5 flex flex-col`}
+                  >
+                    <div className="flex items-center justify-between mb-3 font-mono-code text-xs">
+                      <span className="font-bold text-[var(--ink-3)]">{mod.code}</span>
+                      <span className="text-[10px] uppercase tracking-widest text-[var(--ink-2)]">
+                        {mod.category}
+                      </span>
                     </div>
-                    
-                    <div>
-                      <div className="flex justify-between mb-1">
-                        <span className="text-sm font-medium">Golang</span>
-                        <span className="text-sm font-medium">40%</span>
-                      </div>
-                      <div 
-                        className="w-full bg-gray-200 rounded-full h-2 cursor-pointer relative"
-                        onClick={() => toggleTooltip("Golang")}
-                      >
-                        <div className="bg-blue-600 h-2 rounded-full" style={{ width: '40%' }}></div>
-                        {activeTooltip === "Golang" && (
-                          <div className="absolute left-0 mt-2 p-2 bg-gray-800 text-white text-xs rounded shadow-lg z-10 w-full max-w-xs">
-                            {skillDescriptions["Golang"]}
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <div className="flex justify-between mb-1">
-                        <span className="text-sm font-medium">JavaScript</span>
-                        <span className="text-sm font-medium">35%</span>
-                      </div>
-                      <div 
-                        className="w-full bg-gray-200 rounded-full h-2 cursor-pointer relative"
-                        onClick={() => toggleTooltip("JavaScript")}
-                      >
-                        <div className="bg-blue-600 h-2 rounded-full" style={{ width: '35%' }}></div>
-                        {activeTooltip === "JavaScript" && (
-                          <div className="absolute left-0 mt-2 p-2 bg-gray-800 text-white text-xs rounded shadow-lg z-10 w-full max-w-xs">
-                            {skillDescriptions["JavaScript"]}
-                          </div>
-                        )}
-                      </div>
+
+                    <div className="flex flex-wrap gap-2 mt-auto pt-2">
+                      {mod.items.map((skill) => (
+                        <span
+                          key={skill}
+                          className={`font-mono-code text-xs px-2.5 py-1 border rounded-sm font-medium ${badgeStyle}`}
+                        >
+                          {skill}
+                        </span>
+                      ))}
                     </div>
                   </div>
-                </div>
-                
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Education & Meta Specifications */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-4 border-t border-[var(--ink-4)]">
+            <div className="bp-callout">
+              <span className="bp-callout-tag">ACADEMIC CREDENTIALS</span>
+              <h4 className="font-cond font-bold text-xl uppercase text-[var(--ink)] mb-1">
+                Bachelor of Science in Computer Science
+              </h4>
+              <p className="font-mono-code text-xs text-[var(--cyan)] mb-2">
+                Rajabhat Suan Sunandha University (Computer Science)
+              </p>
+              <p className="text-xs text-[var(--ink-2)] leading-relaxed m-0 font-sans">
+                Core Foundations: Algorithms, Relational Database Modeling, Operating Systems, Computer Networks &amp; Image Processing.
+              </p>
+            </div>
+
+            <div className="bp-callout bp-callout-amber">
+              <span className="bp-callout-tag">ENGINEERING COMPETENCIES</span>
+              <div className="grid grid-cols-2 gap-3 font-mono-code text-xs mt-1">
                 <div>
-                  <h4 className="font-semibold mb-2">Technologies</h4>
-                  <div className="space-y-3">
-                    <div>
-                      <div className="flex justify-between mb-1">
-                        <span className="text-sm font-medium">SQL/Databases</span>
-                        <span className="text-sm font-medium">45%</span>
-                      </div>
-                      <div 
-                        className="w-full bg-gray-200 rounded-full h-2 cursor-pointer relative"
-                        onClick={() => toggleTooltip("SQL/Databases")}
-                      >
-                        <div className="bg-green-500 h-2 rounded-full" style={{ width: '45%' }}></div>
-                        {activeTooltip === "SQL/Databases" && (
-                          <div className="absolute left-0 mt-2 p-2 bg-gray-800 text-white text-xs rounded shadow-lg z-10 w-full max-w-xs">
-                            {skillDescriptions["SQL/Databases"]}
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <div className="flex justify-between mb-1">
-                        <span className="text-sm font-medium">APIs</span>
-                        <span className="text-sm font-medium">55%</span>
-                      </div>
-                      <div 
-                        className="w-full bg-gray-200 rounded-full h-2 cursor-pointer relative"
-                        onClick={() => toggleTooltip("APIs")}
-                      >
-                        <div className="bg-green-500 h-2 rounded-full" style={{ width: '55%' }}></div>
-                        {activeTooltip === "APIs" && (
-                          <div className="absolute left-0 mt-2 p-2 bg-gray-800 text-white text-xs rounded shadow-lg z-10 w-full max-w-xs">
-                            {skillDescriptions["APIs"]}
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <div className="flex justify-between mb-1">
-                        <span className="text-sm font-medium">Firebase/Supabase</span>
-                        <span className="text-sm font-medium">30%</span>
-                      </div>
-                      <div 
-                        className="w-full bg-gray-200 rounded-full h-2 cursor-pointer relative"
-                        onClick={() => toggleTooltip("Firebase/Supabase")}
-                      >
-                        <div className="bg-green-500 h-2 rounded-full" style={{ width: '30%' }}></div>
-                        {activeTooltip === "Firebase/Supabase" && (
-                          <div className="absolute left-0 mt-2 p-2 bg-gray-800 text-white text-xs rounded shadow-lg z-10 w-full max-w-xs">
-                            {skillDescriptions["Firebase/Supabase"]}
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
+                  <span className="text-[var(--ink-3)] block uppercase text-[10px]">DIAGNOSTICS</span>
+                  <span className="text-[var(--ink)] font-semibold block">Root-Cause Debugging</span>
+                  <span className="text-[var(--ink-2)] block">Memory Buffer Profiling</span>
                 </div>
-              </div>
-              
-              <div className="mt-8">
-                <h4 className="font-semibold mb-3">Other Skills & Tools</h4>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    "Git", "AWS", "BigQuery", "Oracle", "RESTful APIs", "Spring Boot", 
-                    "Next.js", "PostgreSQL", "MySQL", "Docker", "Looker", "Grafana", 
-                    "Postman", "Selenium", "Linux", "Flutter", "Dart", "TypeScript"
-                  ].map(skill => (
-                    <span key={skill} className="px-3 py-1 bg-gray-200 rounded-full text-sm">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              
-              <div className="mt-8">
-                <h4 className="font-semibold mb-3">Education</h4>
-                <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
-                  <h5 className="font-bold">Bachelor's degree</h5>
-                  <p className="text-gray-600">Computer Science | SUAN SUNANDHA RAJABHAT UNIVERSITY | 2024</p>
-                  <p className="mt-2 text-gray-700">Additional Coursework: Image Processing</p>
+                <div>
+                  <span className="text-[var(--ink-3)] block uppercase text-[10px]">INTEGRATION</span>
+                  <span className="text-[var(--amber)] font-semibold block">PCI-DSS Tokenization</span>
+                  <span className="text-[var(--ink-2)] block">OCI8 / SQLSRV Drivers</span>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        
-        {/* เพิ่มส่วนอธิบายรูปแบบการวัดทักษะ */}
-        <div className="mt-8 bg-blue-50 p-6 rounded-lg shadow-sm">
-          <h3 className="text-xl font-bold mb-3">Junior Developer Skill Assessment</h3>
-          <p className="text-gray-700 mb-4">
-            The percentage ratings reflect my current capabilities as a Junior Developer with 1 year of experience. These are assessed based on what I can realistically accomplish at this stage of my career, measuring progress within the junior level range before transitioning to mid-level responsibilities.
-          </p>
-          <div className="space-y-2">
-            <div>
-              <span className="font-semibold">60-70%:</span> Strong junior level. Can work independently on most tasks with minimal guidance. Approaching the upper limit of junior developer expectations.
-            </div>
-            <div>
-              <span className="font-semibold">40-59%:</span> Solid junior level. Comfortable with core concepts and can handle routine tasks effectively. May need occasional guidance on complex issues.
-            </div>
-            <div>
-              <span className="font-semibold">25-39%:</span> Developing junior level. Understanding fundamentals but still building practical experience and confidence.
-            </div>
-            <div>
-              <span className="font-semibold">10-24%:</span> Entry junior level. Basic familiarity with concepts, requires guidance and supervision for most tasks.
-            </div>
-            <div>
-              <span className="font-semibold">0-9%:</span> Learning phase. Just beginning to explore the technology with limited hands-on experience.
-            </div>
-          </div>
-          <p className="text-gray-600 mt-4 text-sm">
-            <em>Note: These percentages represent competency within the junior developer scope, not industry-wide expertise levels.</em>
-          </p>
         </div>
       </div>
     </section>

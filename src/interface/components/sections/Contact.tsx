@@ -178,8 +178,6 @@ const Contact: React.FC = () => {
                     [ BASE COORDINATES ] PHYSICAL STATION
                   </span>
                   <p className="font-mono-code text-xs text-[var(--ink-2)] m-0 leading-relaxed">
-                    100/50 Chaiyaphruek Village Watladpraduk,
-                    <br />
                     Bang Bua Thong, Nonthaburi 11110, Thailand
                   </p>
                 </div>
@@ -232,9 +230,8 @@ const Contact: React.FC = () => {
                       value={formState.name}
                       onChange={handleChange}
                       placeholder="ENTER NAME / ORGANIZATION"
-                      className={`w-full px-4 py-2.5 bg-[var(--paper-deep)] border ${
-                        errors.name ? 'border-[var(--red)]' : 'border-[var(--ink-3)]'
-                      } text-[var(--ink)] font-mono-code text-xs placeholder-[var(--ink-3)] focus:border-[var(--cyan)] focus:outline-none`}
+                      className={`w-full px-4 py-2.5 bg-[var(--paper-deep)] border ${errors.name ? 'border-[var(--red)]' : 'border-[var(--ink-3)]'
+                        } text-[var(--ink)] font-mono-code text-xs placeholder-[var(--ink-3)] focus:border-[var(--cyan)] focus:outline-none`}
                     />
                     {errors.name && (
                       <span className="font-mono-code text-[10px] text-[var(--red)] mt-1 block">
@@ -257,9 +254,8 @@ const Contact: React.FC = () => {
                       value={formState.email}
                       onChange={handleChange}
                       placeholder="ENTER RETURN EMAIL"
-                      className={`w-full px-4 py-2.5 bg-[var(--paper-deep)] border ${
-                        errors.email ? 'border-[var(--red)]' : 'border-[var(--ink-3)]'
-                      } text-[var(--ink)] font-mono-code text-xs placeholder-[var(--ink-3)] focus:border-[var(--cyan)] focus:outline-none`}
+                      className={`w-full px-4 py-2.5 bg-[var(--paper-deep)] border ${errors.email ? 'border-[var(--red)]' : 'border-[var(--ink-3)]'
+                        } text-[var(--ink)] font-mono-code text-xs placeholder-[var(--ink-3)] focus:border-[var(--cyan)] focus:outline-none`}
                     />
                     {errors.email && (
                       <span className="font-mono-code text-[10px] text-[var(--red)] mt-1 block">
@@ -282,9 +278,8 @@ const Contact: React.FC = () => {
                       value={formState.message}
                       onChange={handleChange}
                       placeholder="SPECIFY INQUIRY, PROPOSAL, OR SYSTEM REQUIREMENTS..."
-                      className={`w-full px-4 py-2.5 bg-[var(--paper-deep)] border ${
-                        errors.message ? 'border-[var(--red)]' : 'border-[var(--ink-3)]'
-                      } text-[var(--ink)] font-mono-code text-xs placeholder-[var(--ink-3)] focus:border-[var(--cyan)] focus:outline-none resize-none`}
+                      className={`w-full px-4 py-2.5 bg-[var(--paper-deep)] border ${errors.message ? 'border-[var(--red)]' : 'border-[var(--ink-3)]'
+                        } text-[var(--ink)] font-mono-code text-xs placeholder-[var(--ink-3)] focus:border-[var(--cyan)] focus:outline-none resize-none`}
                     ></textarea>
                     {errors.message && (
                       <span className="font-mono-code text-[10px] text-[var(--red)] mt-1 block">

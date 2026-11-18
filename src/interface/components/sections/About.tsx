@@ -223,7 +223,7 @@ const About: React.FC = () => {
                 Bachelor of Science in Computer Science
               </h4>
               <p className="font-mono-code text-xs text-[var(--cyan)] mb-2">
-                Rajabhat Suan Sunandha University (Computer Science)
+                Rajabhat Suan Sunandha University (Apr 2020 – Apr 2024)
               </p>
               <p className="text-xs text-[var(--ink-2)] leading-relaxed m-0 font-sans">
                 Core Foundations: Algorithms, Relational Database Modeling, Operating Systems, Computer Networks &amp; Image Processing.

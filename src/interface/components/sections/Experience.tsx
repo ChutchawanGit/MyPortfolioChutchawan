@@ -3,14 +3,14 @@ import React from 'react';
 const Experience: React.FC = () => {
   const experiences = [
     {
-      rev: 'REV B',
-      period: 'JAN 2023 – PRESENT',
-      company: 'Ducklab Co., Ltd.',
-      position: 'Backend / Full-Stack Developer',
+      rev: 'REV C',
+      period: 'MAR 2026 – PRESENT',
+      company: 'Duck Lab Co., Ltd.',
+      position: 'Web Developer',
       status: 'ACTIVE RUNTIME',
       statusColor: 'var(--cyan)',
       description:
-        'Full-stack backend engineering, enterprise database migrations, payment gateway architectures, and high-security compliance for government and institution web applications.',
+        'Full-stack web development, enterprise database migrations, payment gateway architectures, and high-security compliance for government and institutional web applications.',
       achievements: [
         {
           tag: 'DB MIGRATION',
@@ -23,12 +23,6 @@ const Experience: React.FC = () => {
           title: 'Multi-Channel Payment Integration & PII Security',
           detail:
             'Engineered payment integrations with Opn Payments (Omise) and Krungthai Bank (KTB) supporting 3D-Secure, asynchronous Webhooks, and Tokenization APIs (zero raw card storage). Executed database encryption and SHA-256 hashing across 5,701 National ID personnel records in SQL Server for secure indexing.'
-        },
-        {
-          tag: 'CONTAINER & OCI8',
-          title: 'PHP 8.4 Modernization & Oracle 12c Driver Bridge',
-          detail:
-            'Upgraded Docker web containers from legacy PHP 7.3.31 (Ubuntu 18.04) to PHP 8.4.27 on CentOS 7.9 host to resolve critical CVEs. Successfully compiled and configured native OCI8 and PDO_OCI drivers, maintaining continuous connectivity with on-premise Oracle Database 12c (THKNEWBASE).'
         },
         {
           tag: 'EVENT CMS & SSE',
@@ -47,67 +41,85 @@ const Experience: React.FC = () => {
         'PHP 8.4',
         'CodeIgniter 4',
         'Microsoft SQL Server 2025',
-        'Oracle Database 12c (OCI8)',
         'MariaDB',
         'PHPUnit',
         'Dompdf',
-        'Docker',
+        'Server-Sent Events (SSE)',
+        'Omise / KTB APIs',
         'Python',
-        'GitLab',
-        'CentOS 7'
+        'GitLab'
+      ]
+    },
+    {
+      rev: 'REV B',
+      period: 'MAY 2024 – MAR 2026',
+      company: 'SB Furniture Group',
+      position: 'Programmer',
+      status: 'VERIFIED COMPLETE',
+      statusColor: 'var(--amber)',
+      description:
+        'Enterprise backend programming, legacy container modernization with Oracle Database 12c, automated marketplace data synchronization, and Computer Vision review screening pipelines.',
+      achievements: [
+        {
+          tag: 'CONTAINER & OCI8',
+          title: 'PHP 8.4 Modernization & Oracle 12c Driver Bridge',
+          detail:
+            'Upgraded Docker web containers from legacy PHP 7.3.31 (Ubuntu 18.04) to PHP 8.4.27 on CentOS 7.9 host to resolve critical CVEs. Successfully compiled and configured native OCI8 and PDO_OCI drivers, maintaining continuous connectivity with on-premise Oracle Database 12c (THKNEWBASE).'
+        },
+        {
+          tag: 'DATA SYNC',
+          title: 'Automated Marketplace API Sync & Grafana Analytics',
+          detail:
+            'Built scheduled CLI background processing synchronizing sales and product data from e-commerce marketplace APIs, applying business calculation formulas before streaming aggregated metrics into Grafana dashboards.'
+        },
+        {
+          tag: 'OCR & VISION',
+          title: 'Review Screening via Tesseract OCR & YOLO Person Detection',
+          detail:
+            'Built an OCR verification pipeline using Tesseract to filter out fraudulent review screenshots, combined with YOLO computer vision models to detect human figures for privacy/PDPA risk screening.'
+        },
+        {
+          tag: 'ENTERPRISE BACKEND',
+          title: 'Enterprise Systems & Oracle Database Engineering',
+          detail:
+            'Developed and maintained internal enterprise applications and backend services utilizing Java, Oracle Database, and PHP within production manufacturing and retail operations.'
+        }
+      ],
+      technologies: [
+        'Java',
+        'Oracle Database 12c (OCI8)',
+        'PHP 8.4 / 7.3',
+        'Docker',
+        'CentOS 7',
+        'Python',
+        'Tesseract OCR',
+        'YOLO',
+        'Grafana',
+        'REST APIs'
       ]
     },
     {
       rev: 'REV A',
-      period: '',
-      company: 'Software Solutions & Services / Technical Automation',
-      position: 'Backend & Automation Engineer',
+      period: 'DEC 2023 – MAR 2024',
+      company: 'HIDDEN GEM TECH CO., LTD.',
+      position: 'Software Developer (Internship)',
       status: 'VERIFIED COMPLETE',
       statusColor: 'var(--amber)',
       description:
-        'Engineered automated background data synchronization, Computer Vision review screening pipelines, and analytical sales dashboards.',
+        '4-month software engineering internship focused on backend REST API development and NoSQL database integration.',
       achievements: [
         {
-          tag: 'DATA SYNC',
-          title: 'Automated Marketplace API Sync & Cron Automation',
+          tag: 'FULL-STACK & API',
+          title: 'Node.js Backend Services & MongoDB Data Modeling',
           detail:
-            'Built scheduled CLI background processing synchronizing sales and product data from e-commerce marketplace APIs on daily, time-based, and condition-based intervals with external reference validation.'
-        },
-        {
-          tag: 'SALES ANALYTICS',
-          title: 'Marketplace Sales Analytics & Grafana Integration',
-          detail:
-            'Developed data aggregation pipelines applying business calculation formulas to raw marketplace sales metrics before streaming processed datasets into databases powering Grafana dashboards.'
-        },
-        {
-          tag: 'OCR VALIDATION',
-          title: 'Screenshot Review Fraud Detection via Tesseract OCR',
-          detail:
-            'Built an OCR verification pipeline using Tesseract to extract text from submitted review images, successfully filtering out irrelevant screenshots and fraudulent submission attempts.'
-        },
-        {
-          tag: 'COMPUTER VISION',
-          title: 'YOLO Person Detection & Privacy-Oriented Screening',
-          detail:
-            'Integrated YOLO computer vision models to detect human figures in uploaded review photos for privacy/PDPA risk screening and verify product relevance before publishing.'
-        },
-        {
-          tag: 'AI PROTOTYPE',
-          title: 'RAG Semantic Search Prototype (Qdrant & Firecrawl)',
-          detail:
-            'Prototyped a Retrieval-Augmented Generation (RAG) pipeline scraping dynamic web content via Firecrawl and Scrapling into clean Markdown, embedded into Qdrant vector database for semantic search across official Thai documents.'
+            'Built backend web services and RESTful APIs using Node.js and MongoDB, collaborating with the engineering team on feature delivery and database schema design.'
         }
       ],
       technologies: [
-        'Python',
-        'Tesseract OCR',
-        'YOLO (Computer Vision)',
-        'Qdrant (Vector DB)',
-        'PHP CLI',
-        'Grafana',
+        'Node.js',
+        'MongoDB',
+        'JavaScript',
         'REST APIs',
-        'Firecrawl',
-        'Linux',
         'Git'
       ]
     }

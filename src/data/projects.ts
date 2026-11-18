@@ -15,6 +15,16 @@ import { Project } from '../core/entities';
  */
 export const STATIC_PROJECTS: Project[] = [
   {
+    id: 'research-paper-workspace',
+    title: 'Research Paper Workspace – Cloud PDF Reader & Annotation SaaS',
+    description:
+      'Built a full-stack research paper reading and annotation platform with React 19, TypeScript, Tailwind CSS, PDF.js, and TipTap Markdown editor. Migrated backend to Supabase Cloud (PostgreSQL with RLS, Auth, and Storage bucket for direct PDF uploads), featuring canvas highlight coordinate tracking, public share links, and automated GitHub Pages CI/CD with keep-alive workflows.',
+    technologies: ['React 19', 'TypeScript', 'Supabase', 'PostgreSQL', 'PDF.js', 'TipTap', 'Tailwind CSS', 'GitHub Pages'],
+    imageUrl: './assets/images/projects/research-paper-workspace.jpg',
+    githubUrl: 'https://github.com/ChutchawanGit/research-paper-workspace',
+    liveUrl: 'https://chutchawangit.github.io/research-paper-workspace/'
+  },
+  {
     id: 'neighborhouses-smart-home',
     title: 'Neighbor Houses – Luxury Smart Living Commercial Platform',
     description:

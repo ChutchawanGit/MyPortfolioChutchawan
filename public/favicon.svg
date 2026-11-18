@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Deep Blueprint Navy Background -->
+  <rect width="64" height="64" rx="14" fill="#072546" />
+  <!-- Subtle Blueprint Inner Border -->
+  <rect x="4" y="4" width="56" height="56" rx="10" stroke="#7fdcff" stroke-opacity="0.35" stroke-width="1.5" stroke-dasharray="4 3" />
+  <!-- Corner Registration Marks -->
+  <path d="M10 16V10H16" stroke="#ffc163" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M54 48V54H48" stroke="#ffc163" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <!-- Monogram CM -->
+  <text x="32" y="40" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="800" font-size="24" letter-spacing="-1" fill="#ffffff">
+    C<tspan fill="#7fdcff">M</tspan>
+  </text>
+  <!-- Status Indicator Dot -->
+  <circle cx="50" cy="14" r="3" fill="#ffc163" />
+</svg>

@@ -59,7 +59,7 @@ const Experience: React.FC = () => {
     },
     {
       rev: 'REV A',
-      period: 'FEB 2021 – DEC 2022',
+      period: '',
       company: 'Software Solutions & Services / Technical Automation',
       position: 'Backend & Automation Engineer',
       status: 'VERIFIED COMPLETE',
